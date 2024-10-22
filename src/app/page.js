@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 
 const Time = () => {
-  const [timer, setTimer] = useState(20);
+  const [timer, setTimer] = useState(0);
 
   const timeIsRun = () => {
-    // setTimer((prev) => prev - 1);
-    setTimer((prev) => (prev > 0 ? prev - 1 : 0));
+    setTimer((prev) => prev + 1);
+    // setTimer((prev) => (prev > 0 ? prev + 1 : 0));
   };
 
   const sec = timer % 60;
@@ -14,7 +14,6 @@ const Time = () => {
 
   const runTime = (times) => {
     if (times <= 9) return `0${timer}`;
-    // if (times < 1) return "0";
     return times;
   };
 
@@ -26,19 +25,21 @@ const Time = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(timeIsRun, 900);
+    const interval = setInterval(timeIsRun, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="time">
-      <div className="second">Time : {runTime(sec)} seconds</div>
+      <div className="second">
+        Time {minute}:{sec} seconds
+      </div>
       <div className="timeButton">
         <button className="button" onClick={() => addtime()}>
-          5 sec +
+          5sec +
         </button>
         <button className="button" onClick={() => minTime()}>
-          - 5 sec
+          - 5sec
         </button>
       </div>
     </div>
