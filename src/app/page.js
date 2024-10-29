@@ -22,6 +22,7 @@ const Time = () => {
   };
   const minTime = () => {
     setTimer(timer - 5);
+    setTimer((prev) => (prev > 0 ? prev + 1 : 0));
   };
 
   useEffect(() => {
