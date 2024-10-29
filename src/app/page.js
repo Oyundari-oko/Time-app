@@ -33,7 +33,7 @@ const Time = () => {
   return (
     <div className="time">
       <div className="second">
-        Time {minute}:{sec} seconds
+        {minute} minute : {sec} seconds
       </div>
       <div className="timeButton">
         <button className="button" onClick={() => addtime()}>
